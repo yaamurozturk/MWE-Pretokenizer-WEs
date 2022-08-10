@@ -107,7 +107,7 @@ would be re-tokenized into
 
 - [TODO] Calculate the disparity of the MWEs annotated in the PARSEME TRAIN corpus
 
-   - For each MWE pair, get the cosine simlarity and calculate the **distance**. Aggregate all distances into an average (teh disparity).
+   - For each MWE pair, get the cosine simlarity and calculate the **distance**. Aggregate all distances into an average (the disparity).
    - Repeat the above steps for the 20%, 40%, ..., 100% of the corpus. 
    
    
