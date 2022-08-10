@@ -106,16 +106,16 @@ would be re-tokenized into
 # History of progress
 
 ##February & March : 
--Creating bibliography about MWES:
-    -> summaries for articles in "https://github.com/yaamurozturk/MultiWordExpressions_Bibliography"
+- Creating bibliography about MWES:
+    - summaries for articles in "https://github.com/yaamurozturk/MultiWordExpressions_Bibliography"
     
-    -> Different definitions of MWEs. 
+    - Different definitions of MWEs. 
     
-    -> MWE categories in PARSEME
+    - MWE categories in PARSEME
     
-    -> Shared Tasks in PARSEME
+    - Shared Tasks in PARSEME
     
-    -> Specifically examining Turkish MWEs and noticing problems about lemmas. 
+    - Specifically examining Turkish MWEs and noticing problems about lemmas. 
 
 ##April & May :
     -> Fixing the issues in the Turkish corpus of PARSEME
