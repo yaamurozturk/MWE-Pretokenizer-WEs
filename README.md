@@ -5,6 +5,9 @@ This repository contains some of the outcome of my Master internship at LISN, Pa
 # Context
 Exploring diversity measures (including variety, balance and disparity) for the linguistic phenomenon of multiword expressions (MWEs) in French.
 
+# Diversity
+We view diversity as a measure over **items** clustered into **types**.
+
 # Objectives
 - modelling disparity of MWEs in terms of static word embeddings
 - essessing the feasibility of such modelling in the absence of very large manually annotated corpora
