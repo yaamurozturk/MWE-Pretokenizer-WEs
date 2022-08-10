@@ -113,44 +113,44 @@ would be re-tokenized into
 # History of progress
 
 ## February and March
-- Creating bibliography about MWES:
-    - summaries for articles in "https://github.com/yaamurozturk/MultiWordExpressions_Bibliography"
+Creating bibliography about MWES:
+- summaries for articles in "https://github.com/yaamurozturk/MultiWordExpressions_Bibliography"
     
-    - Different definitions of MWEs. 
+- Different definitions of MWEs. 
     
-    - MWE categories in PARSEME
+- MWE categories in PARSEME
     
-    - Shared Tasks in PARSEME
+- Shared Tasks in PARSEME
     
-    - Specifically examining Turkish MWEs and noticing problems about lemmas. 
+- Specifically examining Turkish MWEs and noticing problems about lemmas. 
 
 ## April & May
-    - Fixing the issues in the Turkish corpus of PARSEME
+- Fixing the issues in the Turkish corpus of PARSEME
     
-    - Re-sampling the files in the same order of shared task.
+- Re-sampling the files in the same order of shared task.
     
-    - Readings: about Diversity measures and usage of word embeddings. 
+- Readings: about Diversity measures and usage of word embeddings. 
     
-    - Article about Turkish MWEs, how lemmas can be problematic.
+- Article about Turkish MWEs, how lemmas can be problematic.
     
-##June & July & August
-    - Multiword processing with word embeddings is an important subject, two possibilities : averaging the vectors of mwe tokens or pretokenizing the mwes. 
+## June & July & August
+- Multiword processing with word embeddings is an important subject, two possibilities : averaging the vectors of mwe tokens or pretokenizing the mwes. 
     
-    - Decision to work on disparity, implications on WEs to adapt it to linguistic phenomenon. 
+- Decision to work on disparity, implications on WEs to adapt it to linguistic phenomenon. 
     
-    - Testing word embeddings on a bigger corpus around 2M sentences from the conllu files, regardless of MWEs. (scripted)
+- Testing word embeddings on a bigger corpus around 2M sentences from the conllu files, regardless of MWEs. (scripted)
     
-    - Turning conllu files to cupt format to make blind.test files. 
+- Turning conllu files to cupt format to make blind.test files. 
     
-    - Using the MTLB system to annotate MWEs in these raw corpora. Trained the model on PARSEME shared task. 
+- Using the MTLB system to annotate MWEs in these raw corpora. Trained the model on PARSEME shared task. 
     
-    - Pretokenizing the MWEs in the raw corpora using the cupt parser (scripted).
+- Pretokenizing the MWEs in the raw corpora using the cupt parser (scripted).
     
-    - Testing the word embeddings with different sizes of data. 
+- Testing the word embeddings with different sizes of data. 
     
-    - Skipgram works better than cbow according to some examples (antonyms like small-big have close vectors, not like we expected them to be represented orthogonally, but phrases that have nothing in common are further such as se retenir and arbre) 
+- Skipgram works better than cbow according to some examples (antonyms like small-big have close vectors, not like we expected them to be represented orthogonally, but phrases that have nothing in common are further such as se retenir and arbre) 
     
-    - It is very much dependent on the number of occurrences of a phrase we have in a corpus, so good lemmatisation is indeed key to mwe processing. 
+- It is very much dependent on the number of occurrences of a phrase we have in a corpus, so good lemmatisation is indeed key to mwe processing. 
     
 # Miscelenaous
     
