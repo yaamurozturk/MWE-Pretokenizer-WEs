@@ -52,7 +52,7 @@ would be re-tokenized into
     ```
     $awk -v max=100000 '{print > sprintf("xx%02d", int(n/max))} /^$/ {n += 1}' raw.conllu
     ```
-- Install [MTLB-STRUCT](https://github.com/shivaat/MTLB-STRUCT/), in your MTLB-STRUCT directory
+- Install [MTLB-STRUCT](https://github.com/shivaat/MTLB-STRUCT/), in your MTLB-STRUCT directory, best to create a conda environment with python 3.8
 - Train a French model of MTLB-STRUCT based on the French PARSEME corpus (TRAIN+DEV+TEST)
 - If MTLB-STRUCT retraining is not needed, the ready-made model and config files can be found on the segur server at LISN, 
 	```
@@ -94,7 +94,7 @@ would be re-tokenized into
    
 - Assess the quality of your semantic space:
    ```
-   $show-similar.py
+   $python show-similar.py
    $cat xx.csv | sed 's/ / ,/g' | column -t -s, | less -S #To print csv files in terminal prettier
    ```
    The script has two modes: (i) given an any token (including a merged MWE), show its frequency and the 5 most similar tokens; (ii) given a pair of tokens, show the cosine similarity. Creates a .csv file with results. The tokens to tests and the number of closest tokens (currently 5) are hardcoded. To change them, open the script and edit the `pairs` and  `list_of_mwes`.
