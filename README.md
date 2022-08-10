@@ -84,12 +84,13 @@ would be re-tokenized into
    ```
    The re-tokenized file is saved in data/lemmas_pretokenized/test.system.cupt.csv
    
-- Train static word embeddings
+- Train static word embeddings with the word2vec algorythm
    ```
    $cd code/
    $python word-embeddings.py test.system.cupt.csv models/ #The input file and the output directory are currently hardcoded; future work: make them parameters
    ```
-   Produces 2 models: a SKIPGRAM and a CBOW and saved them into models/.
+   Both the raw corpus and the manually annotated corpus are used (i.e. every MWE annotated at least once in any of these corpora will receive a word embedding).
+   Produces 2 models: a SKIPGRAM and a CBOW and saved them into models/. The window size is 5. Can be changed in the config file. Increasing it can make sense, since the raw corpus is a collection of continuous sentences in the order of the source texts.
    
 - Assess the quality of your semantic space:
    ```
