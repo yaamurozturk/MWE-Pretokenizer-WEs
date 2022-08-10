@@ -1,7 +1,21 @@
 # MWE-Pretokenizer-WEs
 
+This repository contains some of the outcome of my Master internship at LISN, Paris-Saclay University, February-August 2022.
 
-February & March : 
+# Context
+Exploring diversity measures (including variety, balance and disparity) for the linguistic phenomenon of multiword expressions (MWEs).
+
+# Objectives
+- modelling disparity of MWEs in terms of static word embeddings
+- essessing the feasibility of such modelling in the absence of very large manually annotated corpora
+
+# Methodology
+- 
+
+
+# History of progress
+
+##February & March : 
 -Creating bibliography about MWES:
     -> summaries for articles in "https://github.com/yaamurozturk/MultiWordExpressions_Bibliography"
     
@@ -13,7 +27,7 @@ February & March :
     
     -> Specifically examining Turkish MWEs and noticing problems about lemmas. 
 
-April & May :
+##April & May :
     -> Fixing the issues in the Turkish corpus of PARSEME
     
     -> Re-sampling the files in the same order of shared task.
@@ -22,7 +36,7 @@ April & May :
     
     -> Article about Turkish MWEs, how lemmas can be problematic.
     
-June & July & August : 
+##June & July & August : 
     -> Multiword processing with word embeddings is an important subject, two possibilities : averaging the vectors of mwe tokens or pretokenizing the mwes. 
     
     -> Decision to work on disparity, implications on WEs to adapt it to linguistic phenomenon. 
