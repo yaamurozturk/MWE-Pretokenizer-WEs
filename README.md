@@ -25,7 +25,7 @@ This work is mostly dedicated to **disparity**.
 - [French PARSEME raw corpus](https://gitlab.com/parseme/corpora/-/wikis/Raw-corpora-for-the-PARSEME-1.2-shared-task) for the PARSEME shared task 1.2 in 2020
  
 # Methodology
-- re-tokenizing the raw corpus so that MWEs are merged into single tokens (including those which are discontinuous), e.g.  
+- re-tokenizing the raw corpus so that MWEs are merged into single tokens (including those which are discontinuous), e.g. 
 
     _she has been **paying visits** to her friends_
     _he **paid** her a **visit**_ 
