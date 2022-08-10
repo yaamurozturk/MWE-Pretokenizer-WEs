@@ -6,27 +6,37 @@ This repository contains some of the outcome of my Master internship at LISN, Pa
 Exploring diversity measures (including variety, balance and disparity) for the linguistic phenomenon of multiword expressions (MWEs) in French.
 
 # Diversity
-We view diversity as a measure over **items** clustered into **types**. In the context of MWEs, items are all **annotated occurrences of MWEs**, while a type is the set of all occurrences of the same **MWE**. Types are approximated by lemmatising lexivalized components of each MWE occurrence and considering each **multiset of lemmas** as one type. E.g. _he **paid** a **visit**_, _all the **visits** **paid** by her_ and _**paying** those **visit**_ are items of the same type {pay, visit}.
+We view diversity as a measure over **items** clustered into **types**. In the context of MWEs, items are all **annotated occurrences of MWEs**, while a type is the **set of all occurrences**	 of the same MWE. Types are approximated by lemmatising lexicalized components of each MWE occurrence and considering each **multiset of lemmas** as one type. E.g. _he **paid** a **visit**_, _all the **visits** **paid** by her_ and _**paying** those **visit**_ are items of the same type {pay, visit}.
 
 The 3 dimensions of diversity are:
 - **variety** - the number of all types (occurring in an annotated corpus)
 - **balance** - the evenness of the distribution of items into types
-- **disparity** - teh degree to which types differ from each other
+- **disparity** - the degree to which types differ from each other
 
 This work is mostly dedicated to **disparity**.
 
 # Objectives
-- modelling disparity of MWEs in terms of static word embeddings
-- essessing the feasibility of such modelling in the absence of very large manually annotated corpora
+- modeling disparity of MWEs in terms of static word embeddings
+- assessing the feasibility of such modeling in the absence of very large manually annotated corpora
+- long-distance objective: integrate diversity measures into evaluation and benchmarking of NLP tools for a variety of linguistic phenomena
 
 # Data
 - [French PARSEME corpus v 1.2](http://hdl.handle.net/11234/1-3367) annotated manually for verbal MWEs
-- [French PARSEME raw corpus](https://gitlab.com/parseme/corpora/-/wikis/Raw-corpora-for-the-PARSEME-1.2-shared-task) for teh PARSEEM shared task 1.2 in 2020
+- [French PARSEME raw corpus](https://gitlab.com/parseme/corpora/-/wikis/Raw-corpora-for-the-PARSEME-1.2-shared-task) for the PARSEME shared task 1.2 in 2020
  
 # Methodology
-- retokenizing the raw corpus so that MWEs are merged into single tokens (including those which are discontinuous)
-- training word2vec static word embeddings on the retokenized corpus
-- essessing the resulting semantic space (with exprementally choseln MWEs)
+- re-tokenizing the raw corpus so that MWEs are merged into single tokens (including those which are discontinuous), e.g.  
+
+	_she has been **paying visits** to her friends_
+	_he **paid** her a **visit**_ 
+	
+	would be re-tokenized into 
+	
+	_she has been **pay_visit** to her friends_
+	_he **pay_visit** her a_
+	
+- training word2vec static word embeddings on the lemmas of the re-tokenized corpus
+- assessing the resulting semantic space (with exprimentally choseln MWEs)
 - calculating disparity as an everage of pair-wise cosine distances between MWE types 
 
 
