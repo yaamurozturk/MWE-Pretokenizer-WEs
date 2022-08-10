@@ -84,13 +84,13 @@ would be re-tokenized into
    ```
    The re-tokenized file is saved in data/lemmas_pretokenized/test.system.cupt.csv
    
-- Train static word embeddings with the word2vec algorythm
+- Train static word embeddings with the word2vec algorithm
    ```
    $cd code/
    $python word-embeddings.py test.system.cupt.csv models/ #The input file and the output directory are currently hardcoded; future work: make them parameters
    ```
    Both the raw corpus and the manually annotated corpus are used (i.e. every MWE annotated at least once in any of these corpora will receive a word embedding).
-   Produces 2 models: a SKIPGRAM and a CBOW and saved them into models/. The window size is 5. Can be changed in the config file. Increasing it can make sense, since the raw corpus is a collection of continuous sentences in the order of the source texts.
+   Produces 2 models: a SKIPGRAM and a CBOW and saved them into models/ (the SKIPGRAM model learns to predict a target word thanks to a nearby word; CBOW model predicts the target word according to its context). The window size is 5. Can be changed in the config file. Increasing it can make sense, since the raw corpus is a collection of continuous sentences in the order of the source texts.
    
 - Assess the quality of your semantic space:
    ```
@@ -153,22 +153,4 @@ Creating bibliography about MWES:
     
 - It is very much dependent on the number of occurrences of a phrase we have in a corpus, so good lemmatisation is indeed key to mwe processing. 
     
-# Miscelenaous
-    
-To print csv files in terminal prettier:
 
-    -> cat xx.csv | sed 's/ / ,/g' | column -t -s, | less -S
-    
-- Word2vec gensim parameters: 
-
-model = gensim.models.Word2Vec( 
-    window = 5,
-    min_count = 1,
-    workers=4)
-model2 = gensim.models.Word2Vec( 
-    window = 5,
-    min_count = 1,
-    workers=4,
-    sg = 1)
-
-*The skipgram model learns to predict a target word thanks to a nearby word. On the other hand, the cbow model predicts the target word according to its context. 
