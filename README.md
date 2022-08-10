@@ -38,10 +38,8 @@ would be re-tokenized into
     _he **pay_visit** her a_
 	
 - Training word2vec static word embeddings on the lemmas of the re-tokenized corpus
-    - 
-
-- assessing the resulting semantic space (with exprimentally chosen MWEs)
-- calculating disparity as an average of pair-wise cosine distances between the MWE types present in the corpus
+- Assessing the resulting semantic space (with exprimentally chosen MWEs)
+- Calculating disparity as an average of pair-wise cosine distances between the MWE types present in the corpus
 
 
 # History of progress
