@@ -42,6 +42,7 @@ June & July & August :
     
 - Helpful commands
 To turn conllu to blind.test.cupt:   
+
 ADD TO FIRST LINE : 
 
     -> global.columns = ID FORM LEMMA UPOS XPOS FEATS HEAD DEPREL DEPS MISC PARSEME:MWE
