@@ -1,4 +1,4 @@
-#%%
+#%% Script from Adam Lion-Bouton: https://github.com/AdamLionB/cupt_parser 
 from typing import Iterator,Callable, Any, Union, Optional
 from conllu import TokenList, parse_incr, TokenTree
 import pandas as pd
