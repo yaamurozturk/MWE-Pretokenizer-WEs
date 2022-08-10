@@ -26,6 +26,7 @@ This work is mostly dedicated to **disparity**.
  
 # Methodology
 - Pre-processing
+
 Re-tokenizing the raw corpus so that MWEs are merged into single tokens (including those which are discontinuous), e.g.
 
     _she has been **paying visits** to her friends_
