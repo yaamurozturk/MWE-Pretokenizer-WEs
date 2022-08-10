@@ -12,9 +12,12 @@ Exploring diversity measures (including variety, balance and disparity) for the 
 # Data
 - [French PARSEME corpus v 1.2](http://hdl.handle.net/11234/1-3367) annotated manually for verbal MWEs
 - [French PARSEME raw corpus](https://gitlab.com/parseme/corpora/-/wikis/Raw-corpora-for-the-PARSEME-1.2-shared-task) for teh PARSEEM shared task 1.2 in 2020
-- 
+ 
 # Methodology
-- 
+- retokenizing the raw corpus so that MWEs are merged into single tokens (including those which are discontinuous)
+- training word2vec static word embeddings on the retokenized corpus
+- essessing the resulting semantic space (with exprementally choseln MWEs)
+- calculating disparity as an everage of pair-wise cosine distances between MWE types 
 
 
 # History of progress
