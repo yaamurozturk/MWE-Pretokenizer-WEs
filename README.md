@@ -52,8 +52,8 @@ global.columns = ID FORM LEMMA UPOS XPOS FEATS HEAD DEPREL DEPS MISC PARSEME:MWE
     -> ON VIM TO REPLACE UNDERSCORE WITH NEW LINE 
 :%s/^\t_$//
     
-    -> To print csv files in terminal prettier:
-cat xx.csv | sed 's/ / ,/g' | column -t -s, | less -S
+    -To print csv files in terminal prettier:
+-> cat xx.csv | sed 's/ / ,/g' | column -t -s, | less -S
     
     -> To split conllu or cupt files with a certain max number of empty spaces: (eg. splitting 10.000 sentences in conllu to files with 1000 spaces (sentences)  
 %awk -v max=1000 '{print > sprintf("xx%02d", int(n/max))} /^$/ {n += 1}' filename
