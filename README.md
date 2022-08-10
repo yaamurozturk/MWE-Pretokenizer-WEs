@@ -80,10 +80,28 @@ would be re-tokenized into
 - Re-tokenize the annotated corpus, to merge MWEs components into single tokens
    ```
    $cd code/
-   $
-   $python pretokenize.script.py #The file to retokenize is currently hardcoded; future work - make it a parameter
+   $python pretokenize.script.py test.system.cupt #The file to retokenize is currently hardcoded; future work: make it a parameter
    ```
-   The re-tokenized file is saved in data/lemmas_pretokenized  
+   The re-tokenized file is saved in data/lemmas_pretokenized/test.system.cupt.csv
+   
+- Train static word embeddings
+   ```
+   $cd code/
+   $python word-embeddings.py test.system.cupt.csv models/ #The input file and the output directory are currently hardcoded; future work: make them parameters
+   ```
+   Produces 2 models: a SKIPGRAM and a CBOW and saved them into models/.
+   
+- Assess the quality of your semantic space:
+   ```
+   $show-similar.py
+   ```
+   The script has two modes: (i) given an any token (including a merged MWE), show its frequency and the 5 most similar tokens; (ii) given a pair of tokens, show the cosine similarity. Creates a .csv file with results. The tokens to tests and the number of closest tokens (currently 5) are hardcoded. To change them, open the script and edit the `pairs` and  `list_of_mwes`.
+
+- [TODO] Calculate the disparity of the MWEs annotated in the PARSEME TRAIN corpus
+
+   - For each MWE pair, get the cosine simlarity and calculate the **distance**. Aggregate all distances into an average (teh disparity).
+   - Repeat the above steps for the 20%, 40%, ..., 100% of the corpus. 
+   
    
 # History of progress
 
