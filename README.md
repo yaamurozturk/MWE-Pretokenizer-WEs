@@ -3,15 +3,21 @@
 February & March : 
 -Creating bibliography about MWES:
     -> summaries for articles in "https://github.com/yaamurozturk/MultiWordExpressions_Bibliography"
+    
     -> Different definitions of MWEs. 
+    
     -> MWE categories in PARSEME
+    
     -> Shared Tasks in PARSEME
+    
     -> Specifically examining Turkish MWEs and noticing problems about lemmas. 
+
 April & May :
     -> Fixing the issues in the Turkish corpus of PARSEME
     -> Re-sampling the files in the same order of shared task.
     -> Readings: about Diversity measures and usage of word embeddings. 
     -> Article about Turkish MWEs, how lemmas can be problematic.
+    
 June & July & August : 
     -> Multiword processing with word embeddings is an important subject, two possibilities : averaging the vectors of mwe tokens or pretokenizing the mwes. 
     -> Decision to work on disparity, implications on WEs to adapt it to linguistic phenomenon. 
