@@ -27,13 +27,13 @@ This work is mostly dedicated to **disparity**.
 # Methodology
 - re-tokenizing the raw corpus so that MWEs are merged into single tokens (including those which are discontinuous), e.g.  
 
-	_she has been **paying visits** to her friends_
-	_he **paid** her a **visit**_ 
+    _she has been **paying visits** to her friends_
+    _he **paid** her a **visit**_ 
 	
-	would be re-tokenized into 
+would be re-tokenized into 
 	
-	_she has been **pay_visit** to her friends_
-	_he **pay_visit** her a_
+    _she has been **pay_visit** to her friends_
+    _he **pay_visit** her a_
 	
 - training word2vec static word embeddings on the lemmas of the re-tokenized corpus
 - assessing the resulting semantic space (with exprimentally choseln MWEs)
