@@ -6,7 +6,14 @@ This repository contains some of the outcome of my Master internship at LISN, Pa
 Exploring diversity measures (including variety, balance and disparity) for the linguistic phenomenon of multiword expressions (MWEs) in French.
 
 # Diversity
-We view diversity as a measure over **items** clustered into **types**.
+We view diversity as a measure over **items** clustered into **types**. In the context of MWEs, items are all **annotated occurrences of MWEs**, while a type is the set of all occurrences of the same **MWE**. Types are approximated by lemmatising lexivalized components of each MWE occurrence and considering each **multiset of lemmas** as one type. E.g. _he **paid** a **visit**_, _all the **visits** **paid** by her_ and _**paying** those **visit**_ are items of the same type {pay, visit}.
+
+The 3 dimensions of diversity are:
+- **variety** - the number of all types (occurring in an annotated corpus)
+- **balance** - the evenness of the distribution of items into types
+- **disparity** - teh degree to which types differ from each other
+
+This work is mostly dedicated to **disparity**.
 
 # Objectives
 - modelling disparity of MWEs in terms of static word embeddings
