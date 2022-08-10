@@ -37,9 +37,11 @@ would be re-tokenized into
     _she has been **pay_visit** to her friends_
     _he **pay_visit** her a_
 	
-- training word2vec static word embeddings on the lemmas of the re-tokenized corpus
-- assessing the resulting semantic space (with exprimentally choseln MWEs)
-- calculating disparity as an everage of pair-wise cosine distances between MWE types 
+- Training word2vec static word embeddings on the lemmas of the re-tokenized corpus
+    - 
+
+- assessing the resulting semantic space (with exprimentally chosen MWEs)
+- calculating disparity as an average of pair-wise cosine distances between the MWE types present in the corpus
 
 
 # History of progress
