@@ -75,20 +75,16 @@ would be re-tokenized into
    $cd MTLB-STRUCT/code
    $python load_test.py saved/FR_DEV_bert-base-multilingual-cased_multitask
    ```
-   The annotated files will be saved
-	
+   The annotated files will be saved in saved/FR_DEV_bert-base-multilingual-cased_multitask/test.system.cupt
 
-- Download the two PARSEME corpora and place them in a selected directory
-
-```console
-cd MWE-Pretokenizer-WEs/
-mkdir `
-cd PARSEME-corpora
-curl --remote-name-all https://lindat.mff.cuni.cz/repository/xmlui/bitstream/handle/11234/1-3367{/README.md,/FR.tgz}
-tar -xf FR.tgz
-
-```
-
+- Re-tokenize the annotated corpus, to merge MWEs components into single tokens
+   ```
+   $cd code/
+   $
+   $python pretokenize.script.py #The file to retokenize is currently hardcoded; future work - make it a parameter
+   ```
+   The re-tokenized file is saved in data/lemmas_pretokenized  
+   
 # History of progress
 
 ##February & March : 
