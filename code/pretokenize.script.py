@@ -51,7 +51,7 @@ lemmas_list = out_sentences["lemma"].tolist()
 
 import csv
 
-with open("lemmas-pretokenized/0-50-16.cupt", "w", newline="") as f:
+with open("data/lemmas-pretokenized/0-50-16.cupt", "w", newline="") as f:
     writer = csv.writer(f)
     writer.writerows(lemmas_list)
 
