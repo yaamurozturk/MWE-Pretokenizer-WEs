@@ -105,7 +105,7 @@ would be re-tokenized into
    
 # History of progress
 
-##February & March : 
+## February and March : 
 - Creating bibliography about MWES:
     - summaries for articles in "https://github.com/yaamurozturk/MultiWordExpressions_Bibliography"
     
