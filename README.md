@@ -3,12 +3,16 @@
 This repository contains some of the outcome of my Master internship at LISN, Paris-Saclay University, February-August 2022.
 
 # Context
-Exploring diversity measures (including variety, balance and disparity) for the linguistic phenomenon of multiword expressions (MWEs).
+Exploring diversity measures (including variety, balance and disparity) for the linguistic phenomenon of multiword expressions (MWEs) in French.
 
 # Objectives
 - modelling disparity of MWEs in terms of static word embeddings
 - essessing the feasibility of such modelling in the absence of very large manually annotated corpora
 
+# Data
+- [French PARSEME corpus v 1.2](http://hdl.handle.net/11234/1-3367) annotated manually for verbal MWEs
+- [French PARSEME raw corpus](https://gitlab.com/parseme/corpora/-/wikis/Raw-corpora-for-the-PARSEME-1.2-shared-task) for teh PARSEEM shared task 1.2 in 2020
+- 
 # Methodology
 - 
 
