@@ -111,7 +111,7 @@ would be re-tokenized into
    - Repeat the above steps for the 20%, 40%, ..., 100% of the corpus. 		
    - Get disparity results
    ```
-   $cd code/disparity_calc.py
+   $cd code/
    $python disparity_calc.py random.cupt model/ #The input file and the model directory are currently hardcoded; future work: make them parameters
    ```
   
