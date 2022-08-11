@@ -24,10 +24,11 @@ This work is mostly dedicated to **disparity**.
 - [French PARSEME corpus v 1.2](http://hdl.handle.net/11234/1-3367) annotated manually for verbal MWEs
 - [French PARSEME raw corpus](https://gitlab.com/parseme/corpora/-/wikis/Raw-corpora-for-the-PARSEME-1.2-shared-task) for the PARSEME shared task 1.2 in 2020
  
-# Softwares used
+# Softwares & libraries used
 - [MTLB-STRUCT](https://github.com/shivaat/MTLB-STRUCT/) - a tool for automatic identification of verbal MWEs; scored best in the [PARSEME shared task 1.2](https://multiword.sourceforge.net/sharedtaskresults2020)
 - [GENSIM](https://radimrehurek.com/gensim/) - a Python library for training word embeddings and semantic NLP models
- 
+- Pandas, numpy, matplotlib, spacy, cuda, pytorch
+
 # Methodology
 - Automatically annotating the raw corpus for MWEs with MTLB
 - Pre-processing
