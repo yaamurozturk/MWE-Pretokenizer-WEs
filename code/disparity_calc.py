@@ -6,9 +6,13 @@ import numpy as np
 import gensim
 import itertools
 
-model= gensim.models.Word2Vec.load("final-models/model_1_french_short_SkipGram.model")
-#model2= gensim.models.Word2Vec.load("final-models/model_1_french_short_CBOW.model")
-file = "LINDAT_ALL"
+"Takes a cupt file and word2vec models as inputs" 
+
+model= gensim.models.Word2Vec.load("word2vec_models/model_1_french_short_SkipGram.model")
+file = "example.cupt.file"
+
+
+"This part is the same as pretokenizer script"
 
 parser = Conllu_df_parser(file)
 df = parser.get_df_no_tt() 
@@ -38,6 +42,8 @@ mwe_rest["lemma"] = out                                                 # Replac
 cpdf = df.copy()
 cpdf.loc[index_mwe, "lemma"] = mwe_rest["lemma"]
 out = cpdf.drop(cpdf[cpdf["parseme:mwe"].str.match(r"[1-9]$")].index)
+
+###DISPARITY#####
 
 
 def get_sample(df: str, fraction):
