@@ -1,6 +1,6 @@
 # MWE-Pretokenizer-WEs
 
-This repository contains some of the outcome of my Master internship at LISN, Paris-Saclay University, February-August 2022.
+This repository contains some of the outcomes of my Master internship at LISN, Paris-Saclay University, February-August 2022.
 
 # Context
 Exploring diversity measures (including variety, balance and disparity) for the linguistic phenomenon of multiword expressions (MWEs) in French.
