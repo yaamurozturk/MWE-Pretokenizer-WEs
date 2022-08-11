@@ -109,7 +109,11 @@ would be re-tokenized into
    - Calculate the disparity of the MWEs annotated in the PARSEME TRAIN corpus
    - For each MWE pair, get the cosine simlarity and calculate the **distance**. Aggregate all distances into an average (the disparity).
    - Repeat the above steps for the 20%, 40%, ..., 100% of the corpus. 		
-  
+   - Get disparity results
+   ```
+   $cd code/disparity_calc.py
+   $python disparity_calc.py random.cupt model/ #The input file and the model directory are currently hardcoded; future work: make them parameters
+   ```
   
   ![plot](./plot/disparity.plot.png)
    
