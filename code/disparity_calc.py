@@ -12,8 +12,11 @@ model= gensim.models.Word2Vec.load("word2vec_models/model_1_french_short_SkipGra
 file = "example.cupt.file"
 
 
-"This part is the same as pretokenizer script"
-
+"This part is the same as pretokenizer script.
+These lines are to remove cells that are annotated as Numerical values, proper
+names or punctuations, some lemmas are annotated as underscore we remove them
+as well. 20-25 are optional, can be commented out if you don't want to
+preprocess." 
 parser = Conllu_df_parser(file)
 df = parser.get_df_no_tt() 
 df = df[df['upos'] != "NUM"]
@@ -59,7 +62,7 @@ def disparity(mwes: list, model):
     pairs = []
     distance = []
     
-    for pair in itertools.permutations(mwes, r=2):
+    for pair in itertools.combinations(mwes, r=2):
         pairs.append((list(pair)))
         
     for pair in pairs:
