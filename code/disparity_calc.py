@@ -5,6 +5,13 @@ import conllu
 import numpy as np
 import gensim
 import itertools
+import scipy.spatial.distance import pdist
+import numpy as np
+import re
+from typing import Union
+from tqdm import tqdm, trange
+import matplotlib.pyplot as plt
+from scipy import interpolate as sci
 
 "Takes a cupt file and word2vec models as inputs" 
 
@@ -47,69 +54,60 @@ cpdf.loc[index_mwe, "lemma"] = mwe_rest["lemma"]
 out = cpdf.drop(cpdf[cpdf["parseme:mwe"].str.match(r"[1-9]$")].index)
 
 ###DISPARITY#####
+def get_sample_matrix(df: pd.DataFrame, fraction):
+    tmp = df.sample(frac = fraction)
+    return tmp[tmp.lemma.str.match(r'(\w+_\w+)')].lemma.unique()
+
+def disparity_matrix(mwes, model):
+ """
+ gets a mwe list and word embeddings model
+ 
+  """
+distances = pdist(mwes, lambda x, y: (1 -model.wv.similarity(x, y)) / 2)
+sums = np.sum(distances)
+n = mwes.shape[0]
+               
+return sums/(((n-1)*(n-2))/2)
+
+def get_pct_disparity(df: pd.DataFrame, pct: Union[float, np.float64], model, oov):
+    samples = get_sample_matrix(df, pct)
+    disp = disparity(samples, model)
+
+    return disp
+
+def get_all_pct_disparity(df, model, rg, oov):
+        d = []
+        for p in rg:
+            d.append(get_pct_disparity(df, p, model, oov))
+        return np.array(d)
 
 
-def get_sample(df: str, fraction):
-    #tmp = df.sample(frac = fraction, replace=True, random_state=4)
-    tmp = df.sample(frac= fraction)
-    lemmas = tmp[tmp.lemma.str.match(r'(\w+_\w+)')].lemma.unique()
-    lemmas = lemmas.tolist()
-    return lemmas
+
+#out of vocabulary for some reasons
+oov = ["faire_le_quatre-cents_coup", "se_mettre_en_quatre", "dormir_sur_son_deux_oreille", "mettre_en_le_emporter"]
+pct = np.arange(20, 120, 20)/100
+#pct = np.concatenate([[.01], pct],)
+n_repeats = 10  
+
+valid_df = out[~out.lemma.isin(oov)].copy()
+
+disparities = np.zeros((n_repeats, len(pct)))
+for _ in trange(n_repeats):
+    disparities[_] = get_all_pct_disparity(valid_df, model, pct, oov)
+
+disparities.mean(axis=1)
 
 
+#box plot
 
-def disparity(mwes: list, model):
-    pairs = []
-    distance = []
-    
-    for pair in itertools.combinations(mwes, r=2):
-        pairs.append((list(pair)))
-        
-    for pair in pairs:
-        word1 = pair[0]
-        word2 = pair[1]
-        distance.append(model.wv.similarity(word1, word2))
-    
-    sums= np.sum(distance)
-    av = sums/len(pairs)
-    
-    return av 
+n_val = 100
 
+#disparity = np.array([disp20, disp40, disp60, disp80, disp_all])*100
+pct_sample_size = np.arange(20, 120, 20)
+#pct_sample_size = np.concatenate([[.01], pct_sample_size],)
+plt.xticks(pct_sample_size)
+bp = plt.boxplot(disparities*100, labels = pct_sample_size)  
 
-  
-frac20 = get_sample(out, .20)
-frac40 = get_sample(out, .40)
-frac60 = get_sample(out, .60)
-frac80 = get_sample(out, .80)
-all_mwes = out[out.lemma.str.match(r'(\w+_\w+)')].lemma.unique().tolist()
+bp = plt.xlabel("sample sizes")
 
-
-out_of_vocab = ["faire_le_quatre-cents_coup", "se_mettre_en_quatre", "dormir_sur_son_deux_oreille"]
-
-def out_of_v(list, words): 
-    for el in out_of_vocab:
-        if el in list: list.remove(el)
-        return list
-    
-disp80 = disparity(frac80, model)
-disp60 = disparity(frac60, model)
-disp40 = disparity(frac40, model)
-disp20 = disparity(frac20, model)
-disp_all = disparity(all_mwes, model)
-
-import matplotlib.pyplot as plt
-from scipy import interpolate as sci
-
-x = np.array([disp20, disp40, disp60, disp80, disp_all])
-xx = np.linspace(x.min(), x.max(), 100)
-# corresponding y axis values
-y = [20, 40, 60, 80, 100]
-#spline = make_interp_spline(x, y)
-cb = sci.CubicSpline(x, y)
-yy = cb(xx)
-plt.yticks(y)
-# plotting the points 
-plt.plot(xx, yy)
-plt.xlabel("disparity")
-plt.ylabel("corpus sample size")
-print(plt.grid())  
+bp = plt.ylabel("disparity estimations")
