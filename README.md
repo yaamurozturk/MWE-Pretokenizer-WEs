@@ -116,7 +116,7 @@ would be re-tokenized into
    $python disparity_calc.py random.cupt model/ #The input file and the model directory are currently hardcoded; future work: make them parameters
    ```
   
-  ![plot](./plot/disparity.plot.png)
+  ![plot](./plot/output.plot.box.png)
    
    
 # History of progress
