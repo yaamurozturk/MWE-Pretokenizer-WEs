@@ -54,6 +54,12 @@ cpdf.loc[index_mwe, "lemma"] = mwe_rest["lemma"]
 out = cpdf.drop(cpdf[cpdf["parseme:mwe"].str.match(r"[1-9]$")].index)
 
 ###DISPARITY#####
+    
+    """
+    This function samples lemmas with a certain percentage given by the fraction 
+    df: MWE dataframe
+    fraction: percentage of random sample of items from an axis of object
+    """
 def get_sample_matrix(df: pd.DataFrame, fraction):
     tmp = df.sample(frac = fraction)
     return tmp[tmp.lemma.str.match(r'(\w+_\w+)')].lemma.unique()
@@ -82,6 +88,31 @@ def get_all_pct_disparity(df, model, rg, oov):
         return np.array(d)
 
 
+def disparity(mwes: list, model):
+        """
+        Given a MWE list, and a model, computes the disparity
+
+        mwes : list
+        model: a model of pretrained word embeddings
+        """
+        pairs = []
+        distance = []
+
+        for pair in itertools.combinations(mwes, r=2):
+            pairs.append((list(pair)))
+
+        for pair in pairs:
+            word1 = pair[0]
+            word2 = pair[1]
+            distance.append((1 - model.wv.similarity(word1, word2)) / 2)
+
+
+        sums = np.sum(distance                                           
+        av = sums/len(pairs)
+
+        return av
+                        
+
 
 #out of vocabulary for some reasons
 oov = ["faire_le_quatre-cents_coup", "se_mettre_en_quatre", "dormir_sur_son_deux_oreille", "mettre_en_le_emporter"]
@@ -91,12 +122,15 @@ n_repeats = 10
 
 valid_df = out[~out.lemma.isin(oov)].copy()
 
+#Disparity matrix
+
 disparities = np.zeros((n_repeats, len(pct)))
 for _ in trange(n_repeats):
     disparities[_] = get_all_pct_disparity(valid_df, model, pct, oov)
 
 disparities.mean(axis=1)
 
+#disparities.tofile("disparitiesx.csv", sep= ",")                      
 
 #box plot
 
