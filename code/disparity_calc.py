@@ -13,17 +13,19 @@ from tqdm import tqdm, trange
 import matplotlib.pyplot as plt
 from scipy import interpolate as sci
 
-"Takes a cupt file and word2vec models as inputs" 
+#Takes a cupt file and word2vec models as inputs 
 
 model= gensim.models.Word2Vec.load("word2vec_models/model_1_french_short_SkipGram.model")
 file = "example.cupt.file"
 
 
-"This part is the same as pretokenizer script.
+"""
+This part is the same as pretokenizer script.
 These lines are to remove cells that are annotated as Numerical values, proper
 names or punctuations, some lemmas are annotated as underscore we remove them
 as well. 20-25 are optional, can be commented out if you don't want to
-preprocess." 
+preprocess.
+"""
 parser = Conllu_df_parser(file)
 df = parser.get_df_no_tt() 
 df = df[df['upos'] != "NUM"]
@@ -55,11 +57,11 @@ out = cpdf.drop(cpdf[cpdf["parseme:mwe"].str.match(r"[1-9]$")].index)
 
 ###DISPARITY#####
     
-    ""
+    """
     This function samples lemmas with a certain percentage given by the fraction 
     df: MWE dataframe
     fraction: percentage of random sample of items from an axis of object
-    ""
+    """
 def get_sample_matrix(df: pd.DataFrame, fraction):
     tmp = df.sample(frac = fraction)
     return tmp[tmp.lemma.str.match(r'(\w+_\w+)')].lemma.unique()
