@@ -64,16 +64,18 @@ def get_sample_matrix(df: pd.DataFrame, fraction):
     tmp = df.sample(frac = fraction)
     return tmp[tmp.lemma.str.match(r'(\w+_\w+)')].lemma.unique()
 
+
 def disparity_matrix(mwes, model):
- ""
- gets a mwe list and word embeddings model
- 
-  ""
-distances = pdist(mwes, lambda x, y: (1 -model.wv.similarity(x, y)) / 2)
-sums = np.sum(distances)
-n = mwes.shape[0]
-               
+    """
+    gets a mwe list and word embeddings model
+
+     """
+    distances = pdist(mwes, lambda x, y: (1 - model.wv.similarity(x, y)) / 2)
+    sums = np.sum(distances)
+    n = mwes.shape[0]
+
     return sums/(((n-1)*(n-2))/2)
+
 
 def get_pct_disparity(df: pd.DataFrame, pct: Union[float, np.float64], model):
     samples = get_sample_matrix(df, pct)
