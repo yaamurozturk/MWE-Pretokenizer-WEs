@@ -80,6 +80,7 @@ def get_pct_disparity(df: pd.DataFrame, pct: Union[float, np.float64], model, oo
     disp = disparity(samples, model)
     return disp
 
+
 def get_all_pct_disparity(df, model, rg, oov):
         d = []
         for p in rg:
