@@ -75,7 +75,7 @@ n = mwes.shape[0]
                
 return sums/(((n-1)*(n-2))/2)
 
-def get_pct_disparity(df: pd.DataFrame, pct: Union[float, np.float64], model, oov):
+def get_pct_disparity(df: pd.DataFrame, pct: Union[float, np.float64], model):
     samples = get_sample_matrix(df, pct)
     disp = disparity(samples, model)
     return disp
