@@ -77,11 +77,11 @@ def disparity_matrix(mwes, model):
     return sums/(((n-1)*(n-2))/2)
 
 
-def get_pct_disparity(df: pd.DataFrame, pct: Union[float, np.float64], model):
+def get_pct_disparity(df: pd.DataFrame, pct: Union[float, np.float64], model, oov):
     samples = get_sample_matrix(df, pct)
     disp = disparity(samples, model)
-    return disp
 
+    return disp
 
 
 def get_all_pct_disparity(df, model, rg, oov):
