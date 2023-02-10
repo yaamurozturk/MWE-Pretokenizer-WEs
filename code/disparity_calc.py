@@ -94,28 +94,30 @@ def get_all_pct_disparity(df, model, rg, oov):
 
 
 def disparity(mwes: list, model):
-        """
-        Given a MWE list, and a model, computes the disparity
+    """
+    Given a MWE list, and a model, computes the disparity
 
-        mwes : list
-        model: a model of pretrained word embeddings
-        """
-        pairs = []
-        distance = []
+    MWE: list
+        The MWEs
+    mode:
+        a model of pretrained word embeddings
+    """
+    pairs = []
+    distance = []
 
-        for pair in itertools.combinations(mwes, r=2):
-            pairs.append((list(pair)))
+    for pair in itertools.combinations(mwes, r=2):
+        pairs.append((list(pair)))
 
-        for pair in pairs:
-            word1 = pair[0]
-            word2 = pair[1]
-            distance.append((1 - model.wv.similarity(word1, word2)) / 2)
+    for pair in pairs:
+        word1 = pair[0]
+        word2 = pair[1]
+        distance.append((1 - model.wv.similarity(word1, word2)) / 2)
 
+    sums = np.sum(distance)
+    av = sums/len(pairs)
 
-        sums = np.sum(distance                                           
-        av = sums/len(pairs)
+    return av
 
-        return av
                         
 
 
